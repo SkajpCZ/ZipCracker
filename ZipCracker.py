@@ -1,3 +1,6 @@
+# Made by: Skajp   |   Discord: DeadSkajp#5906
+# Github: https://github.com/SkajpCZ/ZipCracker
+# Version: 1
 import zipfile, os, time, random
 
 count = 1
