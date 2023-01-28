@@ -97,11 +97,12 @@ print(f"""\033[1;36m
 FoundRockYou = True if os.path.exists("utf8-rockyou.txt") else False
 if FoundRockYou == False:
     print('\033[1;32m' + "\n Downloading" + '\033[0;90m' + " > " + '\033[0;37m' + f"rockyou.txt  (modified to work with this script)  \n")
-    os.system("curl -s https://raw.githubusercontent.com/SkajpCZ/Rockyou.txtUTF-8/main/utf8-rockyou.zip -o ./utf8-rockyou.zip && tar -xf utf8-rockyou.zip")
     if os.name == 'nt':
+        os.system("curl -s https://raw.githubusercontent.com/SkajpCZ/Rockyou.txtUTF-8/main/utf8-rockyou.zip -o ./utf8-rockyou.zip && tar -xf utf8-rockyou.zip")
         os.system("del /F /S /Q utf8-rockyou.zip >nul")
     else:
-        os.system("rm utf8-rockyou.zip /dev/null")
+        os.system("curl -s https://raw.githubusercontent.com/SkajpCZ/Rockyou.txtUTF-8/main/utf8-rockyou.zip -o ./utf8-rockyou.zip && unzip utf8-rockyou.zip")
+        os.system("rm utf8-rockyou.zip")
 dpfile = input(f'\033[1;93m Drag your zip file here \033[1;90m> \033[1;37m')
 folderCracked = dpfile.strip('"').split('\\')
 folderCracked.reverse()
