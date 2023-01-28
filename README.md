@@ -22,6 +22,5 @@ linux
 ```
 git clone https://github.com/SkajpCZ/ZipCracker
 cd ZipCracker
-pip install -r requirements.txt
 python3 ZipCracker.py
 ```
