@@ -19,7 +19,6 @@ def rockyou():
     zfile = zipfile.ZipFile(dpfile)
     passFile = open('utf8-rockyou.txt', 'r', encoding='utf-8')
     print()
-    # print(f"\n\033[1;96m Passwords \033[1;90m> \033[1;37m{passlistlenght}\n\n")
 
     for line in passFile.readlines():
         password = line.strip('\n')
@@ -27,7 +26,6 @@ def rockyou():
         if guess:
             spaceafter = " "*18
             print(f" \033[4;32mCracked\033[0;92m ({count}) \033[1;90m> \033[1;37m{password}{spaceafter*3}\n\n", end='\r')
-            # input('\n\n\n\033[1;37m Press \033[1;93m[ Enter ]\033[1;37m to exit')
             break
 
 def rand_digits():
@@ -38,7 +36,6 @@ def rand_digits():
     for line in passFile.readlines():
         chars1 = "1234567890"
         password = ''.join((random.choice(chars1) for i in range(random.randint(2, 16))))
-        # password = line.strip('\n')
         guess = extrac(zfile, password)
         if guess:
             spaceafter = " "*18
