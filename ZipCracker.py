@@ -66,6 +66,8 @@ def every_rand():
 
 
 def MainMenu():
+    global count
+    count = 1
     cho = input("\033[1;93m Option \033[1;90m> \033[1;37m").lower()
     if cho == 'rockyou' or cho == '1':
         rockyou()
@@ -91,7 +93,7 @@ print(f"""\033[1;36m
      / /__/ / /_/ / /___/ /  / /_/ / /__/ ,< /  __/ /    
     /____/_/ .___/\____/_/   \__,_/\___/_/|_|\___/_/     
           /_/                                       \033[1;37mby \033[1;90mSkajp
-                                                    \033[1;37mVersion: \033[1;90m1
+                                                    \033[1;37mVersion: \033[1;90m2
 """)
 
 FoundRockYou = True if os.path.exists("utf8-rockyou.txt") else False
@@ -103,11 +105,17 @@ if FoundRockYou == False:
     else:
         os.system("curl -s https://raw.githubusercontent.com/SkajpCZ/Rockyou.txtUTF-8/main/utf8-rockyou.zip -o ./utf8-rockyou.zip && unzip utf8-rockyou.zip")
         os.system("rm utf8-rockyou.zip")
-dpfile = input(f'\033[1;93m Drag your zip file here \033[1;90m> \033[1;37m')
-folderCracked = dpfile.strip('"').split('\\')
-folderCracked.reverse()
-folderCracked = folderCracked[0]
-dpfile = dpfile.replace('\\', '/').strip('"')
+def SelFile():
+    global dpfile
+    global folderCracked
+    dpfile = input(f'\033[1;93m Drag your zip file here \033[1;90m> \033[1;37m')
+    folderCracked = dpfile.strip('"').split('\\')
+    folderCracked.reverse()
+    folderCracked = folderCracked[0]
+    dpfile = dpfile.replace('\\', '/').strip('"')
+    if folderCracked.split(".")[1] != 'zip': print("\n\033[1;91m Unknown file format, you can only use: \033[4;91m.zip\033[0;91m\n"); SelFile()
+SelFile()
+
 
 
 print("\n\n\033[1;36m Passwords Lists\033[1;90m:")
