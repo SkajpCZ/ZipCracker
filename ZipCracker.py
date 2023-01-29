@@ -112,7 +112,7 @@ def SelFile():
     folderCracked = dpfile.strip('"').split('\\')
     folderCracked.reverse()
     folderCracked = folderCracked[0]
-    dpfile = dpfile.replace('\\', '/').strip('"')
+    dpfile = dpfile.replace('\\', '/').strip().strip('"')
     if folderCracked.split(".")[1] != 'zip': print("\n\033[1;91m Unknown file format, you can only use: \033[4;91m.zip\033[0;91m\n"); SelFile()
 SelFile()
 
